@@ -13,17 +13,13 @@ library(p8105.datasets)
 library(flexdashboard)
 ```
 
-# Problem 2
-
 ```{r}
 data("instacart")
 instacart_small <- instacart |> sample_n(10000)
 glimpse(instacart_small)
 ```
-## Introduction
 
-This dashboard explores when and what customers purchase on the Instacart platform, focusing on product preferences, ordering time patterns, and reordering behaviors.
-
+## Top 10 Most Purchased Product Aisles
 ```{r}
 instacart_small |>
   count(aisle,sort = TRUE) |>
@@ -48,42 +44,55 @@ instacart_small |>
     
 ```
 
+
+
+## Distribution of Add-to-Cart Order
 ```{r}
 instacart_small |>
   plot_ly(
-    x=~department,
-    y=~add_to_cart_order,
-    type = "box",
-    color = ~department,
-    colors ="viridis"
-  ) |>
-layout(
-title = "Distribution of Cart Position by Department",
-xaxis = list(title = "Department"),
-yaxis = list(title = "Add-to-Cart Order")
-)
-  
-```
-```{r}
-instacart_small |>
-  group_by(order_dow, order_hour_of_day) |>
-  summarise(num_orders = n(), .groups = "drop") |>
-  mutate(
-    order_dow = factor(order_dow,
-                       levels = 0:6,
-                       labels = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
-  ) |>
-  plot_ly(
-    x = ~order_hour_of_day,
-    y = ~num_orders,
-    color = ~order_dow,
-    colors = "viridis",
-    type = "scatter",
-    mode = "lines+markers"
+    x = ~add_to_cart_order,
+    type = "histogram",
+    nbinsx = 30,
+    marker = list(color = "viridis")
   ) |>
   layout(
-    title = "Order Frequency by Hour and Day of Week",
-    xaxis = list(title = "Hour of Day"),
-    yaxis = list(title = "Number of Orders")
+    title = "Distribution of Add-to-Cart Order",
+    xaxis = list(title = "Add-to-Cart Order"),
+    yaxis = list(title = "Count")
   )
 ```
+
+## Cart Position vs Order Hour
+```{r}
+instacart_small |>
+  plot_ly(
+    x = ~order_hour_of_day,
+    y = ~add_to_cart_order,
+    type = "scatter",
+    mode = "markers",
+    color = ~factor(reordered),   
+    colors = "viridis"           
+  ) |>
+  layout(
+    title = "Cart Position vs Order Hour (Colored by Reordered)",
+    xaxis = list(title = "Hour of Day"),
+    yaxis = list(title = "Add-to-Cart Order")
+  )
+```
+
+Top 8 Departments by Order Share
+```{r}
+instacart_small |>
+  count(department, sort = TRUE) |>
+  top_n(8, n) |>
+  plot_ly(
+    labels = ~department,
+    values = ~n,
+    type = "pie",
+    hole = 0.45, 
+    textinfo = "label+percent",
+    marker = list(colors = "viridis")
+  ) |>
+  layout(title = "Top 8 Departments by Order Share")
+```
+
