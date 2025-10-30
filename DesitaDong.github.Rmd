@@ -1,0 +1,20 @@
+---
+title: "DesitaDong's Website"
+output:
+  html_document:
+    theme: cerulean
+    toc: false
+---
+
+# Welcome!
+
+![](images/dd.jpg){width=250px style="border-radius:50%; display:block; margin:auto;"}
+
+Hi, I'm **Wanting Dong** 👋  
+I'm a MPH candidate in Epidemiology at **Columbia University Mailman School of Public Health**.  
+
+My research interests focus on **Neurodenegerative Diseases**, **Real-World Evidence Analysis**, and **Phamarcoepidmeiology**.  
+Currently, my thesis focuses on Regression discontinuity design to evaluate the effect of statins on myocardial infarction in electronic health records.  
+
+Feel free to explore my work or connect with me on GitHub!
+

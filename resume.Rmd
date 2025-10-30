@@ -1,0 +1,20 @@
+---
+title: "Academic and Professsional Experience"
+output: html_document
+---
+
+## Education
+- **Columbia University Mailman School of Public Health**, MPH in Epidemiology (2024–2026)
+- **Chinese Univesity of Hong Kong, Shenzhen**, MS in Bioinformatics (2020–2024)
+
+## Research Experience
+- Research Assistant, China CDC, Global Health Center
+- Research Intern, Haiyan Pharmaceutical Co., Ltd., Yangtze River Pharmaceutical Group
+- Student Intern, Cheng JIANG Molecular and Cellular Engineering Group
+
+## Skills
+R | SAS | Python | MatLab | Microsoft Office
+
+## Contact
+📧 Email: [wd2311@columbia.edu](mailto:wd2311@columbia.edu)  
+🌐 GitHub: [github.com/DesitaDong](https://github.com/DesitaDong)

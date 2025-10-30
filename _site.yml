@@ -1,0 +1,22 @@
+name: "Wanting Dong"
+navbar:
+  title: "Wanting Dong"
+  left:
+    - text: "Home"
+      href: DesitaDong.html
+    - text: "Resume"
+      href: resume.html
+    - text: "Dashboard"
+      href: dashboard.html
+  right:
+    - icon: fa-github
+      href: "https://github.com/DesitaDong"
+    - icon: fa-envelope
+      href: "mailto: wd2311@columbia.edu"
+    - icon: fa-linkedin
+      href: "https://www.linkedin.com/in/wanting-dong-dd398398/"
+output_dir: "docs"
+output:
+  html_document:
+    theme: cerulean
+    toc: false
